@@ -9,7 +9,7 @@ sys.path.insert(0,'/tmp/')
 import boto3
 
 bedrock_agent_client = boto3.client("bedrock-agent-runtime")
-KB_ID = '1KBBDFUTW4'
+KB_ID = '<<KB ID>>'
 
 def get_named_parameter(event, name):
     return next(item for item in event['parameters'] if item['name'] == name)['value']
