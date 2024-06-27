@@ -23,7 +23,7 @@ def get_response(user_input):
     response, trace, citations = agent.invoke_agent(user_input, agent_id, agent_alias_id, st.session_state.session_id)
     print(f"response from bedrock agent: {response}")
     return response, trace, citations
-    
+
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -36,8 +36,7 @@ for message in st.session_state.messages:
 # Accept user input
 if prompt := st.chat_input("How can i help you today?"):
     # Add user message to chat history
-    content = [{"text": prompt}]
-    st.session_state.messages.append({"role": "user", "content": content})
+    st.session_state.messages.append({"role": "user", "content": prompt})
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(prompt)
